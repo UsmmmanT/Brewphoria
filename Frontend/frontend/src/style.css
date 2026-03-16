@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import "tailwindcss";
+
+
+body{
+  background-color: rgba(236, 228, 228, 0.648);
+}
+
+a hr {
+  display: none;
+}
+
+a.active hr {
+  display: block;
+}
+
+::-webkit-scrollbar
+{
+  display:none;
+}
+@media (max-width: 600px) {
+ a.active{
+  background-color:black;
+  color:white;
+ }
+}
