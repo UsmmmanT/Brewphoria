@@ -5,6 +5,10 @@
     font-family: 'Outfit';
 }
 
+.body{
+    background-color:rgb(131, 133, 134);
+}
+
 .active{
     background-color: 	#F4A460;
     color: black;

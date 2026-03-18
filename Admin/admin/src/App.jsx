@@ -15,6 +15,7 @@ export const currency='Rs.'
 const App = () => {
 
   const [token, setToken] = useState(localStorage.getItem("token") || "");
+ 
 
   useEffect(() => {
     if (token) {
@@ -47,7 +48,7 @@ const App = () => {
                 <Route path='/' element={<Navigate to='/add' replace />} />
                 <Route path='/add' element={<Add />} />
                 <Route path='/list' element={<List token={token} />} />
-                <Route path='/order' element={<Order />} />
+                <Route path='/order' element={<Order token={token} />} />
                 <Route path='*' element={<Navigate to='/add' replace />} />
               </Routes>
             </div>

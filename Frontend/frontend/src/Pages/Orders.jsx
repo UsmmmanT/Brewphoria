@@ -67,8 +67,8 @@ const Orders = () => {
                   <p className='text-base font-medium'>{item.name}</p>
                   <div className='flex items-center text-base gap-3 mt-2 text-gray-500'>
                     <p className='text-lg'>{currency} {item.price || getProductStartingPrice(item)}</p>
-                    <p>Quantity:{item.quantity}</p>
-                    <p>Size:{item.size || 'N/A'}</p>
+                    <p>Quantity: {item.quantity}</p>
+                    <p>Size: {item.size || 'N/A'}</p>
                   </div>
                   <p className='mt-2'>Date: <span className='text-gray-400'>{new Date(item.date).toDateString()}</span></p>
                 </div>
