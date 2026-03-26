@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 
 const Order = ({ token }) => {
   const [orders, setOrders] = useState([])
-  const [sortOrder, setSortOrder] = useState('asc')
+  const [statusFilter, setStatusFilter] = useState('All')
   const adminToken = token || localStorage.getItem('token')
 
   const fetchOrders = async () => {
@@ -56,24 +56,15 @@ const Order = ({ token }) => {
 
   }
 
-  const handleSortByStatus = () => {
-    const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc'
-    setSortOrder(newSortOrder)
+  const statusOptions = ['All', 'Order Placed', 'Packing', 'Shipped', 'Out For Delivery', 'Delivered']
+
+  const handleStatusFilter = (event) => {
+    setStatusFilter(event.target.value)
   }
 
-  const getSortedOrders = () => {
-    const sorted = [...orders].sort((a, b) => {
-      const statusOrder = ['Order Placed', 'Packing', 'Shipped', 'Out For Delivery', 'Delivered']
-      const indexA = statusOrder.indexOf(a.status)
-      const indexB = statusOrder.indexOf(b.status)
-      
-      if (sortOrder === 'asc') {
-        return indexA - indexB
-      } else {
-        return indexB - indexA
-      }
-    })
-    return sorted
+  const getFilteredOrders = () => {
+    if (statusFilter === 'All') return orders
+    return orders.filter(order => order.status === statusFilter)
   }
 
   useEffect(() => {
@@ -87,15 +78,18 @@ const Order = ({ token }) => {
     <div>
       <div className='flex justify-between items-center mb-4'>
         <h3>Orders Page</h3>
-        <button
-          onClick={handleSortByStatus}
-          className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition'
+        <select
+          value={statusFilter}
+          onChange={handleStatusFilter}
+          className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition outline-none'
         >
-          Sort by Status ({sortOrder === 'asc' ? 'A-Z' : 'Z-A'})
-        </button>
+          {statusOptions.map(option => (
+            <option key={option} value={option}>{option}</option>
+          ))}
+        </select>
       </div>
       <div>
-        {getSortedOrders().map((order, index) => (
+        {getFilteredOrders().map((order, index) => (
           <div className='py-0.5 grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-1 p-5 md:p-8 text-xs sm:text-sm text-gray-700' key={index}>
             <img src={assets.parcel_icon} alt="" />
             <div>
