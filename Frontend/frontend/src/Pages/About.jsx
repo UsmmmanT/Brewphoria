@@ -1,7 +1,7 @@
 import React from 'react'
 import NewsletterBox from '../components/NewsletterBox'
 import Title from '../components/Title'
-import aboutus from '../images/aboutus.png'
+import aboutus from '../images/aboutus.jpeg'
 
 const About = () => {
   return (
