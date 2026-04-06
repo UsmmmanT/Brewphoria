@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import hero from '../images/hero.jpg'
+import hero from '../images/hero.png'
 
 const Hero = () => {
   return (
@@ -35,11 +35,7 @@ const Hero = () => {
                 <div>
                     <div className='relative min-h-[320px] overflow-hidden rounded-[2rem] bg-[#ead8ca]'>
                         <img src={hero} className='h-full w-full object-cover' alt='Featured Brewphoria coffee' />
-                        <div className='absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,_rgba(46,29,20,0)_0%,_rgba(46,29,20,0.72)_100%)] p-6 sm:p-8 text-white'>
-                            <p className='max-w-sm text-base leading-7 sm:text-lg'>
-                                Layered notes, comforting aroma, and a finish that keeps you coming back.
-                            </p>
-                        </div>
+                    
                     </div>
                 </div>
             </div>
