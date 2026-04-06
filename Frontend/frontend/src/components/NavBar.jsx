@@ -29,7 +29,7 @@ const NavBar = () => {
 
   return (
     <div className='w-full py-5 font-medium'>
-      <div className='flex items-center justify-between gap-4 rounded-[1.75rem] border border-[#e9c8b2] bg-[linear-gradient(135deg,_#DCCDBE,_#C8A58C)] px-4 py-4 shadow-[0_20px_50px_rgba(118,63,29,0.12)] sm:px-6'>
+      <div className='flex items-center justify-between gap-4 rounded-[1.75rem] border border-[#b08a6a] bg-[linear-gradient(135deg,_#b89b7a,_#7a5a3a)] px-4 py-4 shadow-[0_20px_50px_rgba(80,40,20,0.18)] sm:px-6'>
         <Link to='/' className='flex items-center gap-3'>
           <img className='w-32 sm:w-40 h-auto rounded-xl' src={logo} alt='Brewphoria logo' />
           <div className='hidden lg:block'>
