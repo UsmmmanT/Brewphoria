@@ -9,8 +9,11 @@ const authUser = async (req,res,next)=>{
 
     try {
         const decoded=jwt.verify(token,process.env.JWT_SECRET)
-        req.body.userId=decoded.id
-        next()
+        if (req.body.userId === decoded.id) {
+            next()
+        } else {
+            res.json({success:false,message:"Not Authorized. Login Again"})
+        }
     } catch (error) {
         console.log(error)
         res.json({success:false,message:error.message})
